@@ -5,10 +5,16 @@
     <eat-comment />
 
     <string-array name="categories">
-        <item>Tavail</item>
+        <item>Travail</item>
         <item>Famille</item>
         <item>Divers</item>
-        <item>Loisir</item>
+        <item>Loisirs</item>
+        <item>Romantique</item>
+        <item>Cofé</item>
+        <item>Jeux</item>
+        <item>Voyage</item>
+        <item>Travaux</item>
+        <item>Docteur</item>
     </string-array>
     <!-- From: file:/Users/fabien/Documents/Etudes/Master/2e%20année/todos1/app/src/main/res/values/dimens.xml -->
     <eat-comment />

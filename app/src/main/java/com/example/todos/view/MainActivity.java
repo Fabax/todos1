@@ -36,6 +36,7 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
     static String KEY_CONTENT = "content";
     static String KEY_PRIORITY = "priority";  
     static String KEY_DEADLINE = "deadline";
+    static String KEY_STATUS = "status";
     static String KEY_CATEGORY = "category";
 
     //Variables
@@ -134,9 +135,11 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
 			map.put(KEY_CONTENT, todo.getTodoContent());
 			map.put(KEY_DEADLINE, todo.getTodoDeadline());
             map.put(KEY_CATEGORY, todo.getTodoCategory());
+            map.put(KEY_STATUS, Integer.toString(todo.getStatusTodo()));
 			                                                                
             //Add to the Arraylist
-			todoCollection.add(map);            
+			todoCollection.add(map);
+            Toast.makeText(this,todo.getTodoCategory(),Toast.LENGTH_SHORT).show();
 		}
 		
 		

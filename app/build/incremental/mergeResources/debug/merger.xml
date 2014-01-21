@@ -14,6 +14,41 @@
                 qualifiers="hdpi"
                 type="drawable" />
             <file
+                name="cabinet"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/cabinet.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="camera"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/camera.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="clock"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/clock.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="coffee"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/coffee.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="color_palette"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/color_palette.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="compass"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/compass.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="game_pad"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/game_pad.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
                 name="gradient_bg"
                 path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/gradient_bg.xml"
                 qualifiers="hdpi"
@@ -21,6 +56,16 @@
             <file
                 name="gradient_bg_hover"
                 path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/gradient_bg_hover.xml"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="heart"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/heart.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="home"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/home.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
@@ -36,6 +81,21 @@
             <file
                 name="list_selector"
                 path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/list_selector.xml"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="oscilloscope"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/oscilloscope.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="quill"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/quill.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="wrench"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/wrench.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
@@ -101,7 +161,7 @@
 
                 <string-array name="categories" >
                     <item>
-Tavail
+Travail
                     </item>
                     <item>
 Famille
@@ -110,7 +170,25 @@ Famille
 Divers
                     </item>
                     <item>
-Loisir
+Loisirs
+                    </item>
+                    <item>
+Romantique
+                    </item>
+                    <item>
+Cofé
+                    </item>
+                    <item>
+Jeux
+                    </item>
+                    <item>
+Voyage
+                    </item>
+                    <item>
+Travaux
+                    </item>
+                    <item>
+Docteur
                     </item>
                 </string-array>
 
