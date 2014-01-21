@@ -14,6 +14,8 @@ public class DetailTodo extends Activity {
 	private TextView contentTodo;
 	private TextView deadlineTodo;
 	private TextView priorityTodo;
+    private TextView categoryTodo;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -26,12 +28,14 @@ public class DetailTodo extends Activity {
         String priority = i.getStringExtra("priority");
         String content = i.getStringExtra("content");
         String deadline = i.getStringExtra("deadline");
+        String category = i.getStringExtra("category");
          
         // Displaying Received data
         titleTodo.setText(title);
         contentTodo.setText(content);
         deadlineTodo.setText(deadline);
         priorityTodo.setText(priority);
+        categoryTodo.setText(category);
 	}
 	
     public void setViews(){
@@ -41,6 +45,7 @@ public class DetailTodo extends Activity {
         contentTodo = (TextView) findViewById(R.id.detail_content_output);
         deadlineTodo = (TextView) findViewById(R.id.detail_deadline_output);
         priorityTodo = (TextView) findViewById(R.id.detail_priority_output);
+        categoryTodo = (TextView) findViewById(R.id.detail_category_output);
     		
     }
 }

@@ -25,7 +25,7 @@
     <RadioGroup
         android:id="@+id/todo_priority_input"
         style="@style/AppBaseTheme"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="left"
         android:orientation="horizontal" >
@@ -50,6 +50,11 @@
             android:text="haute" />
 
     </RadioGroup>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner" />
 
     <DatePicker
         android:id="@+id/todo_dead_line_input"

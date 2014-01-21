@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- From: file:/Users/fabien/Documents/Etudes/Master/2e%20année/todos1/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string-array name="categories">
+        <item>Tavail</item>
+        <item>Famille</item>
+        <item>Divers</item>
+        <item>Loisir</item>
+    </string-array>
     <!-- From: file:/Users/fabien/Documents/Etudes/Master/2e%20année/todos1/app/src/main/res/values/dimens.xml -->
     <eat-comment />
 

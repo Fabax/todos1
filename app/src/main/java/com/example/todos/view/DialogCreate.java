@@ -13,10 +13,12 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -30,23 +32,32 @@ public class DialogCreate extends DialogFragment  {
     DatabaseHandler db;
     Communicator communicator;
     int position = 0;
-    String title,content;
+    String title,content,category;
     int priority;
     DatePicker deadLinePicker;
     EditText todo_title;
     EditText todo_message;
     String dateString;
     boolean update;
+    Spinner spinner;
 
 
     public Dialog onCreateDialog(Bundle savedInstanceState){
         //Get deb
         db = new DatabaseHandler(getActivity());
 
+
+
         //Creation of the dialog
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         final View promptsView = inflater.inflate(R.layout.todo_form, null);
+
+        //Category
+        spinner = (Spinner) promptsView.findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),R.array.categories, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         //form field text
         todo_title = (EditText) promptsView.findViewById(R.id.todo_name_input);
@@ -92,14 +103,16 @@ public class DialogCreate extends DialogFragment  {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
+                        category = spinner.getSelectedItem().toString();
+
+
+                        ModelTodos model = new ModelTodos(idx, todo_title.getText().toString(), todo_message.getText().toString(), dateString, category);
 
                         if(update){
-                            ModelTodos model = new ModelTodos(idx, todo_title.getText().toString(), todo_message.getText().toString(), dateString);
                             communicator.updateTodo(model);
-
                         }else{
-                            ModelTodos model = new ModelTodos(idx, todo_title.getText().toString(), todo_message.getText().toString(), dateString);
                             communicator.addTodoToDb(model);
+                            Toast.makeText(getActivity(),category,Toast.LENGTH_LONG).show();
                         }
 
 

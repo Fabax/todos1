@@ -48,4 +48,10 @@
         android:layout_height="wrap_content"
         android:text="TextView" />
 
+    <TextView
+        android:id="@+id/detail_category_output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
 </LinearLayout><!-- From: file:/Users/fabien/Documents/Etudes/Master/2e%20année/todos1/app/src/main/res/layout/detail_todo.xml -->

@@ -35,9 +35,10 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
     static String KEY_TITLE = "title";
     static String KEY_CONTENT = "content";
     static String KEY_PRIORITY = "priority";  
-    static String KEY_DEADLINE = "deadline";       
+    static String KEY_DEADLINE = "deadline";
+    static String KEY_CATEGORY = "category";
 
-	//Variables 
+    //Variables
 	Button addTodoButton;
 	ListView list;
     DatabaseHandler db;
@@ -87,18 +88,25 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
 
     public void showCreateDialog(int position, boolean bool){
 
+        String title;
+        String content;
+        int priority;
+
         FragmentManager manager = getSupportFragmentManager();
         DialogCreate createDialog = new DialogCreate();
 
         if(bool){
-            String title = db.getTodo(position).getTodoTitle();
-            String content = db.getTodo(position).getTodoContent();
-            int priority = db.getTodo(position).getPriority();
+            title = db.getTodo(position).getTodoTitle();
+            content = db.getTodo(position).getTodoContent();
+            priority = db.getTodo(position).getPriority();
 
             Bundle bundle = new Bundle();
             bundle.putString("title", title);
             bundle.putString("content", content);
             bundle.putInt("priority", priority);
+
+            Toast.makeText(this,"show create : " + title +" "+content +" "+ priority,Toast.LENGTH_SHORT).show();
+
             createDialog.setArguments(bundle);
             createDialog.show(manager,"createDialog");
         }else{
@@ -125,6 +133,7 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
 			map.put(KEY_PRIORITY, Integer.toString(todo.getPriority()));
 			map.put(KEY_CONTENT, todo.getTodoContent());
 			map.put(KEY_DEADLINE, todo.getTodoDeadline());
+            map.put(KEY_CATEGORY, todo.getTodoCategory());
 			                                                                
             //Add to the Arraylist
 			todoCollection.add(map);            
@@ -139,7 +148,7 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				Intent intentDetail = new Intent(MainActivity.this, DetailTodo.class);
 				intentDetail.putExtra("title", todoCollection.get(position).get(KEY_TITLE));
-				//intentDetail.putExtra("category", todoCollection.get(position).get(KEY_CATEGORY));
+				intentDetail.putExtra("category", todoCollection.get(position).get(KEY_CATEGORY));
 				intentDetail.putExtra("priority", todoCollection.get(position).get(KEY_PRIORITY));
 				intentDetail.putExtra("content", todoCollection.get(position).get(KEY_CONTENT));
 				intentDetail.putExtra("deadline", todoCollection.get(position).get(KEY_DEADLINE));
@@ -185,13 +194,16 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
     //METHODS OF THE DIALOG CREATE FRAGMENT
     @Override
     public void addTodoToDb(ModelTodos model) {
+        String modelString = model.getTodoTitle();
         db.addTodo(model);
         buildList();
     }
 
     @Override
     public void updateTodo(ModelTodos model) {
-        Toast.makeText(this,"item updated",Toast.LENGTH_SHORT).show();
+
+        String modelString = model.getTodoTitle();
+        Toast.makeText(this,"item updated" + modelString,Toast.LENGTH_SHORT).show();
         db.updateTodo(model);
         buildList();
     }

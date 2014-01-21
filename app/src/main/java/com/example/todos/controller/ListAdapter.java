@@ -79,20 +79,22 @@ public class ListAdapter extends BaseAdapter {
 	   
 	    // Setting all values in listview	      
 	    holder.title.setText(todoCollection.get(position).get(KEY_TITLE));
-	    //holder.priority.setText(todoCollection.get(position).get(KEY_PRIORITY));
 	    holder.description.setText(todoCollection.get(position).get(KEY_DESCRIPTION));
 	    holder.deadline.setText(todoCollection.get(position).get(KEY_DEADLINE));
 	    
 	    String priority = (String) todoCollection.get(position).get(KEY_PRIORITY);
+        String status = (String) todoCollection.get(position).get(KEY_STATUS);
 	    Log.v("priority",priority);
-	    
+
 	    if(priority.contains("0")){
 	    	vi.setBackgroundColor(Color.CYAN);
 	    }else if (priority.contains("1")){
 	    	vi.setBackgroundColor(Color.GREEN);
 	    }else if (priority.contains("2")){
 	    	vi.setBackgroundColor(Color.MAGENTA);
-	    }  
+	    }
+
+
 	    return vi;
 	}
 	

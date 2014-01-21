@@ -10,12 +10,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.example.todos.view.MainActivity;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
  
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 4;
  
     // Database Name
     private static final String DATABASE_NAME = "todos_db";
@@ -30,15 +33,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_TITLE = "title";
     private static final String KEY_CONTENT = "content";
     private static final String KEY_DATE = "deadline";
+    private static final String KEY_CATEGORY = "category";
     
     private static final String CREATE_TODOS_TABLE = "CREATE TABLE IF NOT EXISTS " 
     		+ TABLE_TODOS + "("
             + KEY_ID + " integer primary key autoincrement," 
     		+ KEY_PRIORITY + " INTEGER,"
             + KEY_STATUS + " INTEGER," 
-    		+ KEY_TITLE + " TEXT," 
-    		+ KEY_DATE + " DATETIME," 
-            + KEY_CONTENT + " TEXT)";
+    		+ KEY_TITLE + " TEXT,"
+    		+ KEY_DATE + " DATETIME,"
+            + KEY_CONTENT + " TEXT,"
+            + KEY_CATEGORY + " TEXT )";
  
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -72,9 +77,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	    values.put(KEY_STATUS, modelTodos.getStatusTodo()); 
 	    values.put(KEY_TITLE, modelTodos.getTodoTitle()); 
 	    values.put(KEY_DATE, modelTodos.getTodoDeadline()); 
-	    values.put(KEY_CONTENT, modelTodos.getTodoContent()); 
-	    
-	    Log.v("add todo",values.toString());
+	    values.put(KEY_CONTENT, modelTodos.getTodoContent());
+        values.put(KEY_CATEGORY, modelTodos.getTodoCategory());
+
+
+	    Log.v("add todo", values.toString());
+
 	    // Inserting Row
 	    if (db == null) {
 	        Log.v("custom error","db is not set");
@@ -89,9 +97,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	// Getting single ModelTodos
 	public ModelTodos getTodo(int id) {
 		SQLiteDatabase db = this.getReadableDatabase();
-	 
+
 	    Cursor cursor = db.query(TABLE_TODOS, new String[] { 
-	    	KEY_ID, KEY_PRIORITY, KEY_STATUS,KEY_TITLE,KEY_CONTENT }, KEY_ID + "=?",
+	    	KEY_ID, KEY_PRIORITY, KEY_STATUS,KEY_TITLE,KEY_CONTENT,KEY_CATEGORY }, KEY_ID + "=?",
 	        new String[] { String.valueOf(id) }, null, null, null, null);
 	    
 	    if (cursor != null){
@@ -99,7 +107,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	    }
 	 
 	    ModelTodos modelTodos = new ModelTodos(Integer.parseInt(cursor.getString(0)),
-	            Integer.parseInt(cursor.getString(1)), cursor.getString(2),cursor.getString(3));
+                Integer.parseInt(cursor.getString(1)), cursor.getString(2),cursor.getString(3),cursor.getString(4));
 	    // return contact
 	    return modelTodos;
 	}
@@ -123,6 +131,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	            todos.setTodoTitle(cursor.getString(3));
 	            todos.setTodoDeadline(cursor.getString(4));
 	            todos.setTodoContent(cursor.getString(5));
+                todos.setTodoCategory(cursor.getString(6));
 	            // Adding todos to list
 	            todoList.add(todos);
 	        } while (cursor.moveToNext());
@@ -149,9 +158,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	    values.put(KEY_PRIORITY, modelTodos.getPriority()); 
 	    values.put(KEY_STATUS, modelTodos.getStatusTodo()); 
 	    values.put(KEY_TITLE, modelTodos.getTodoTitle()); 
-	    values.put(KEY_CONTENT, modelTodos.getTodoContent()); 
-	 
-	    // updating row
+	    values.put(KEY_CONTENT, modelTodos.getTodoContent());
+        values.put(KEY_CATEGORY, modelTodos.getTodoCategory());
+
+        // updating row
 	    return db.update(TABLE_TODOS, values, KEY_ID + " = ?",
             new String[] { String.valueOf(modelTodos.getID()) });
 	}

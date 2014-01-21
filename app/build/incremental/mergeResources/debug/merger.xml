@@ -98,6 +98,22 @@
                 </string>
                 <string name="alert_edition_title" >Quelle operation shouaitez vous effectuer ? 
                 </string>
+
+                <string-array name="categories" >
+                    <item>
+Tavail
+                    </item>
+                    <item>
+Famille
+                    </item>
+                    <item>
+Divers
+                    </item>
+                    <item>
+Loisir
+                    </item>
+                </string-array>
+
                 <string name="app_name" >todos
                 </string>
                 <string name="hello_world" >Hello world!
