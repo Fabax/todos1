@@ -21,8 +21,8 @@
         <ImageView
             android:id="@+id/list_image"
             android:layout_width="50dip"
-            android:layout_height="78dp"
-            android:layout_weight="3.78"
+            android:layout_height="79dp"
+            android:layout_weight="18.59"
             android:src="@drawable/bell" />
     </LinearLayout>
 

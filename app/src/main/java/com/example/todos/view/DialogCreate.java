@@ -63,11 +63,8 @@ public class DialogCreate extends DialogFragment  {
         todo_title = (EditText) promptsView.findViewById(R.id.todo_name_input);
         todo_message = (EditText) promptsView.findViewById(R.id.todo_message_input);
 
-        //radio button
-        RadioGroup todo_priority = (RadioGroup) promptsView.findViewById(R.id.todo_priority_input);
-        int radioButtonID = todo_priority.getCheckedRadioButtonId();
-        View radioButton = todo_priority.findViewById(radioButtonID);
-        final int idx = todo_priority.indexOfChild(radioButton);
+
+        final RadioGroup todo_priority = (RadioGroup) promptsView.findViewById(R.id.todo_priority_input);
         // ---- fin ration button
 
         //DATE PICKER
@@ -103,16 +100,20 @@ public class DialogCreate extends DialogFragment  {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
+                        //radio button
+
+                        int radioButtonID = todo_priority.getCheckedRadioButtonId();
+                        View radioButton = todo_priority.findViewById(radioButtonID);
+                        int idx = todo_priority.indexOfChild(radioButton);
+
                         category = spinner.getSelectedItem().toString();
-
-
                         ModelTodos model = new ModelTodos(idx, todo_title.getText().toString(), todo_message.getText().toString(), dateString, category);
 
                         if(update){
                             communicator.updateTodo(model);
                         }else{
                             communicator.addTodoToDb(model);
-                            Toast.makeText(getActivity(),category,Toast.LENGTH_LONG).show();
+                          
                         }
 
 

@@ -33,6 +33,7 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="WARN" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="id" />
   </component>
   <component name="ChangeListManager">
@@ -102,15 +103,15 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/todos/view/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="142" column="0" selection-start="4708" selection-end="4708" vertical-scroll-proportion="-21.923077" vertical-offset="1560" max-vertical-offset="3285">
+            <state line="36" column="42" selection-start="1223" selection-end="1231" vertical-scroll-proportion="-20.76923" vertical-offset="0" max-vertical-offset="3270">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2188#2351#0" expanded="true" />
                 <element signature="e#2340#2341#0" expanded="true" />
-                <element signature="e#4885#5542#0" expanded="true" />
-                <element signature="e#5537#5538#0" expanded="true" />
-                <element signature="e#5582#5881#0" expanded="true" />
-                <element signature="e#5870#5871#0" expanded="true" />
+                <element signature="e#4802#5459#0" expanded="true" />
+                <element signature="e#5454#5455#0" expanded="true" />
+                <element signature="e#5499#5798#0" expanded="true" />
+                <element signature="e#5787#5788#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -119,7 +120,7 @@
       <file leaf-file-name="ListAdapter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/todos/controller/ListAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="45" selection-start="3864" selection-end="3871" vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="1965">
+            <state line="117" column="28" selection-start="4082" selection-end="4090" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1965">
               <folding />
             </state>
           </provider>
@@ -131,7 +132,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="4" selection-start="729" selection-end="739" vertical-scroll-proportion="-10.962963" vertical-offset="619" max-vertical-offset="1320">
+            <state line="2" column="39" selection-start="179" selection-end="191" vertical-scroll-proportion="-1.1111112" vertical-offset="0" max-vertical-offset="1320">
               <folding />
             </state>
           </provider>
@@ -144,25 +145,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strings.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="28" selection-start="615" selection-end="615" vertical-scroll-proportion="14.166667" vertical-offset="0" max-vertical-offset="405">
+            <state line="13" column="16" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DialogCreate.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="DialogCreate.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/todos/view/DialogCreate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="114" column="92" selection-start="4263" selection-end="4263" vertical-scroll-proportion="0.0" vertical-offset="905" max-vertical-offset="2295">
+            <state line="115" column="26" selection-start="4262" selection-end="4262" vertical-scroll-proportion="104.8" vertical-offset="1201" max-vertical-offset="2310">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3609#4331#0" expanded="true" />
-                <element signature="e#4312#4313#0" expanded="true" />
-                <element signature="e#4394#4618#0" expanded="true" />
-                <element signature="e#4599#4600#0" expanded="true" />
+                <element signature="e#3389#4330#0" expanded="true" />
+                <element signature="e#4311#4312#0" expanded="true" />
+                <element signature="e#4393#4617#0" expanded="true" />
+                <element signature="e#4598#4599#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -587,11 +588,12 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/detail_todo.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/todos/view/DetailTodo.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/todos/model/ModelTodos.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/todos/view/DialogCreate.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/todos/model/DatabaseHandler.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/list_row.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/todos/view/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/todos/controller/ListAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/todos/view/DialogCreate.java" />
       </list>
     </option>
   </component>
@@ -1336,44 +1338,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="16" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/cabinet.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/todos/view/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="0" selection-start="4708" selection-end="4708" vertical-scroll-proportion="-21.923077" vertical-offset="1560" max-vertical-offset="3285">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2188#2351#0" expanded="true" />
-            <element signature="e#2340#2341#0" expanded="true" />
-            <element signature="e#4885#5542#0" expanded="true" />
-            <element signature="e#5537#5538#0" expanded="true" />
-            <element signature="e#5582#5881#0" expanded="true" />
-            <element signature="e#5870#5871#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/todos/view/DialogCreate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="92" selection-start="4263" selection-end="4263" vertical-scroll-proportion="0.0" vertical-offset="256" max-vertical-offset="2295">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3609#4331#0" expanded="true" />
-            <element signature="e#4312#4313#0" expanded="true" />
-            <element signature="e#4394#4618#0" expanded="true" />
-            <element signature="e#4599#4600#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/todos/controller/ListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="45" selection-start="3864" selection-end="3871" vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="1965">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_row.xml">
@@ -1381,15 +1355,48 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="4" selection-start="729" selection-end="739" vertical-scroll-proportion="-10.962963" vertical-offset="619" max-vertical-offset="1320">
+        <state line="2" column="39" selection-start="179" selection-end="191" vertical-scroll-proportion="-1.1111112" vertical-offset="0" max-vertical-offset="1320">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/todos/view/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="28" selection-start="615" selection-end="615" vertical-scroll-proportion="14.166667" vertical-offset="0" max-vertical-offset="405">
+        <state line="36" column="42" selection-start="1223" selection-end="1231" vertical-scroll-proportion="-20.76923" vertical-offset="0" max-vertical-offset="3270">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2188#2351#0" expanded="true" />
+            <element signature="e#2340#2341#0" expanded="true" />
+            <element signature="e#4802#5459#0" expanded="true" />
+            <element signature="e#5454#5455#0" expanded="true" />
+            <element signature="e#5499#5798#0" expanded="true" />
+            <element signature="e#5787#5788#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/game_pad.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/todos/controller/ListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="117" column="28" selection-start="4082" selection-end="4090" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1965">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/todos/view/DialogCreate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="26" selection-start="4262" selection-end="4262" vertical-scroll-proportion="104.8" vertical-offset="1201" max-vertical-offset="2310">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3389#4330#0" expanded="true" />
+            <element signature="e#4311#4312#0" expanded="true" />
+            <element signature="e#4393#4617#0" expanded="true" />
+            <element signature="e#4598#4599#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

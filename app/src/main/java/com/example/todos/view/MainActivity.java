@@ -139,7 +139,6 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
 			                                                                
             //Add to the Arraylist
 			todoCollection.add(map);
-            Toast.makeText(this,todo.getTodoCategory(),Toast.LENGTH_SHORT).show();
 		}
 		
 		

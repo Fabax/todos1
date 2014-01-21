@@ -112,15 +112,15 @@ public class ListAdapter extends BaseAdapter {
 
 
         if(status.contains("0")){
-            vi.setBackgroundColor(Color.BLACK);
+            holder.category.setBackgroundColor(Color.BLACK);
         }
 
 	    if(priority.contains("0")){
-	    	vi.setBackgroundColor(Color.CYAN);
+            holder.category.setBackgroundColor(Color.CYAN);
 	    }else if (priority.contains("1")){
-	    	vi.setBackgroundColor(Color.GREEN);
+            holder.category.setBackgroundColor(Color.GREEN);
 	    }else if (priority.contains("2")){
-	    	vi.setBackgroundColor(Color.MAGENTA);
+            holder.category.setBackgroundColor(Color.MAGENTA);
 	    }
 
 
