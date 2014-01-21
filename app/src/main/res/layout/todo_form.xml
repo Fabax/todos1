@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/todo_name_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="titre" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/todo_message_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="note"
+        android:inputType="textMultiLine" />
+
+    <RadioGroup
+        android:id="@+id/todo_priority_input"
+        style="@style/AppBaseTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:checked="true"
+            android:text="basse" />
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="moyenne" />
+
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="106dp"
+            android:layout_height="wrap_content"
+            android:text="haute" />
+
+    </RadioGroup>
+
+    <DatePicker
+        android:id="@+id/todo_dead_line_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:measureAllChildren="true" />
+
+</LinearLayout>

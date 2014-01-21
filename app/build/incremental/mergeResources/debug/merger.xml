@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res" >
+            <file
+                name="arrow"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/arrow.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="bell"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/bell.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="gradient_bg"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/gradient_bg.xml"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="gradient_bg_hover"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/gradient_bg_hover.xml"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/ic_launcher.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="image_bg"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/image_bg.xml"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="list_selector"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/list_selector.xml"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-mdpi/ic_launcher.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-xhdpi/ic_launcher.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="activity_main"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/layout/activity_main.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="detail_todo"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/layout/detail_todo.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="dialog_manage"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/layout/dialog_manage.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="list_row"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/layout/list_row.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="todo_form"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/layout/todo_form.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="main"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/menu/main.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/values/dimens.xml"
+                qualifiers="" >
+                <dimen name="activity_horizontal_margin" >16dp
+                </dimen>
+                <dimen name="activity_vertical_margin" >16dp
+                </dimen>
+            </file>
+            <file
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/values/strings.xml"
+                qualifiers="" >
+                <string name="action_settings" >Settings
+                </string>
+                <string name="alert_edition_title" >Quelle operation shouaitez vous effectuer ? 
+                </string>
+                <string name="app_name" >todos
+                </string>
+                <string name="hello_world" >Hello world!
+                </string>
+            </file>
+            <file
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/values/styles.xml"
+                qualifiers="" >
+
+                <style
+                    name="AppBaseTheme"
+                    parent="android:Theme.Light" >
+
+                    <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+                    -->
+                </style>
+
+                <style
+                    name="AppTheme"
+                    parent="AppBaseTheme" >
+
+                    <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+                </style>
+            </file>
+            <file
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/values-sw720dp-land/dimens.xml"
+                qualifiers="sw720dp-land" >
+                <dimen name="activity_horizontal_margin" >128dp
+                </dimen>
+            </file>
+        </source>
+        <source path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/build/res/rs/debug" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/debug/res" />
+    </dataSet>
+
+</merger>
