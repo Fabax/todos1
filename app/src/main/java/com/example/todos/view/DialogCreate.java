@@ -30,20 +30,18 @@ public class DialogCreate extends DialogFragment  {
     DatabaseHandler db;
     Communicator communicator;
     int position = 0;
+    String title,content;
+    int priority;
     DatePicker deadLinePicker;
     EditText todo_title;
     EditText todo_message;
     String dateString;
+    boolean update;
 
 
     public Dialog onCreateDialog(Bundle savedInstanceState){
         //Get deb
         db = new DatabaseHandler(getActivity());
-        //Get BUNDLE
-        Bundle bundle = this.getArguments();
-        if(getArguments()!=null){
-            position = getArguments().getInt("position");
-        }
 
         //Creation of the dialog
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -54,30 +52,56 @@ public class DialogCreate extends DialogFragment  {
         todo_title = (EditText) promptsView.findViewById(R.id.todo_name_input);
         todo_message = (EditText) promptsView.findViewById(R.id.todo_message_input);
 
+        //radio button
+        RadioGroup todo_priority = (RadioGroup) promptsView.findViewById(R.id.todo_priority_input);
+        int radioButtonID = todo_priority.getCheckedRadioButtonId();
+        View radioButton = todo_priority.findViewById(radioButtonID);
+        final int idx = todo_priority.indexOfChild(radioButton);
+        // ---- fin ration button
+
+        //DATE PICKER
+        deadLinePicker = (DatePicker) promptsView.findViewById(R.id.todo_dead_line_input);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(deadLinePicker.getYear(), deadLinePicker.getMonth() + 1, deadLinePicker.getDayOfMonth());
+        Date dateFromDatePicker = calendar.getTime();
+        dateString = (dateFormat.format(dateFromDatePicker));
+
+
+        //Get BUNDLE
+        final Bundle bundle = this.getArguments();
+        if(getArguments()!=null){
+            title = getArguments().getString("title");
+            content = getArguments().getString("content");
+            priority = getArguments().getInt("priority");
+
+            Toast.makeText(getActivity(),title,Toast.LENGTH_SHORT).show();
+
+            todo_title.setText(title);
+            todo_message.setText(content);
+            todo_priority.check(priority);
+
+            update = true;
+        }else{
+            update = false;
+        }
+        //----- fin date picker
+
         builder.setView(promptsView);
         builder.setPositiveButton("OK",
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
 
-                        //radio button
-                        RadioGroup todo_priority = (RadioGroup) promptsView.findViewById(R.id.todo_priority_input);
-                        int radioButtonID = todo_priority.getCheckedRadioButtonId();
-                        View radioButton = todo_priority.findViewById(radioButtonID);
-                        final int idx = todo_priority.indexOfChild(radioButton);
-                        // ---- fin ration button
+                        if(update){
+                            ModelTodos model = new ModelTodos(idx, todo_title.getText().toString(), todo_message.getText().toString(), dateString);
+                            communicator.updateTodo(model);
 
-                        //DATE PICKER
-                        deadLinePicker = (DatePicker) promptsView.findViewById(R.id.todo_dead_line_input);
-                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-                        Calendar calendar = Calendar.getInstance();
-                        calendar.set(deadLinePicker.getYear(), deadLinePicker.getMonth() + 1, deadLinePicker.getDayOfMonth());
-                        Date dateFromDatePicker = calendar.getTime();
-                        dateString = (dateFormat.format(dateFromDatePicker));
-                        //----- fin date picker
+                        }else{
+                            ModelTodos model = new ModelTodos(idx, todo_title.getText().toString(), todo_message.getText().toString(), dateString);
+                            communicator.addTodoToDb(model);
+                        }
 
-                        ModelTodos model = new ModelTodos(idx, todo_title.getText().toString(), todo_message.getText().toString(), dateString);
-                        communicator.addTodoToDb(model);
 
                     }
                 });
@@ -96,6 +120,7 @@ public class DialogCreate extends DialogFragment  {
 
     public interface Communicator{
         public void addTodoToDb(ModelTodos model);
+        public void updateTodo(ModelTodos model);
     }
 
 

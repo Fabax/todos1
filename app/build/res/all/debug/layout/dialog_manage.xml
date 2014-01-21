@@ -13,9 +13,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <RelativeLayout
-        android:layout_width="423dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.22">
+        android:layout_width="177dp"
+        android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/dialog_manage_editer"

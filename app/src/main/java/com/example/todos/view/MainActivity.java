@@ -70,7 +70,7 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
     	addTodoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                showCreateDialog(1);
+                showCreateDialog(1, false);
             }
         });
     	list = (ListView) findViewById(R.id.listView1);			
@@ -85,13 +85,27 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
 		editionDialog.show(manager,"editionDialog");
 	}
 
-    public void showCreateDialog(int position){
+    public void showCreateDialog(int position, boolean bool){
+
         FragmentManager manager = getSupportFragmentManager();
-        Bundle bundle = new Bundle();
-        bundle.putInt("position", position);
         DialogCreate createDialog = new DialogCreate();
-        createDialog.setArguments(bundle);
-        createDialog.show(manager,"createDialog");
+
+        if(bool){
+            String title = db.getTodo(position).getTodoTitle();
+            String content = db.getTodo(position).getTodoContent();
+            int priority = db.getTodo(position).getPriority();
+
+            Bundle bundle = new Bundle();
+            bundle.putString("title", title);
+            bundle.putString("content", content);
+            bundle.putInt("priority", priority);
+            createDialog.setArguments(bundle);
+            createDialog.show(manager,"createDialog");
+        }else{
+            createDialog.show(manager,"createDialog");
+        }
+
+
     }
 
 
@@ -158,7 +172,8 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
 
     @Override
     public void onEditEntry(String message, int position) {
-        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
+        showCreateDialog(position,true);
+        Toast.makeText(this,message + position,Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -171,6 +186,13 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
     @Override
     public void addTodoToDb(ModelTodos model) {
         db.addTodo(model);
+        buildList();
+    }
+
+    @Override
+    public void updateTodo(ModelTodos model) {
+        Toast.makeText(this,"item updated",Toast.LENGTH_SHORT).show();
+        db.updateTodo(model);
         buildList();
     }
 }
