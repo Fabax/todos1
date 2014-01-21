@@ -1,8 +1,6 @@
-package com.example.todos.view;
 
-import com.example.todos.R;
-import com.example.todos.model.DatabaseHandler;
-import com.example.todos.model.ModelTodos;
+
+package com.example.todos.view;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -11,15 +9,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
+import com.example.todos.R;
+import com.example.todos.model.DatabaseHandler;
 
-public class DialogEdition extends DialogFragment  {
-	
-	Button cancel, edit, remove, done;
-	View currentView ;
+/**
+ * Created by fabien on 21/01/2014.
+ */
+public class DialogEdition extends DialogFragment {
+
+    Button cancel, edit, remove, done;
+    View currentView ;
     DatabaseHandler db;
-    ModelTodos modelTodo;
     Communicator communicator;
     int position = 0;
 
@@ -29,8 +30,9 @@ public class DialogEdition extends DialogFragment  {
     }
 
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+        // Get the data
         db = new DatabaseHandler(getActivity());
         Bundle bundle = this.getArguments();
         if(getArguments()!=null)
@@ -39,13 +41,13 @@ public class DialogEdition extends DialogFragment  {
         }
 
 
-		currentView = inflater.inflate(R.layout.dialog_manage, null);
+        currentView = inflater.inflate(R.layout.dialog_manage, null);
 
-		
-		cancel = (Button) currentView.findViewById(R.id.dialog_manage_cancel);
-		edit = (Button) currentView.findViewById(R.id.dialog_manage_editer);
-		remove = (Button) currentView.findViewById(R.id.dialog_manage_delete);
-		done = (Button) currentView.findViewById(R.id.dialog_manage_done);
+
+        cancel = (Button) currentView.findViewById(R.id.dialog_manage_cancel);
+        edit = (Button) currentView.findViewById(R.id.dialog_manage_editer);
+        remove = (Button) currentView.findViewById(R.id.dialog_manage_delete);
+        done = (Button) currentView.findViewById(R.id.dialog_manage_done);
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,15 +80,14 @@ public class DialogEdition extends DialogFragment  {
             }
         });
 
-		return currentView;
-	}
+        return currentView;
+    }
 
-   public interface Communicator{
+    public interface Communicator{
         public void onDeleteEntry(String message, int position);
         public void onEditEntry(String message, int position);
         public void doneTodo(String message, int position);
     }
 
-
-
 }
+

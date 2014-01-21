@@ -14,26 +14,21 @@ import com.example.todos.model.ModelTodos;
 import com.example.todos.controller.ListAdapter;
 
 import android.os.Bundle;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
-public class MainActivity extends FragmentActivity implements View.OnClickListener,DialogInterface.OnClickListener, DialogEdition.Communicator{
+public class MainActivity extends FragmentActivity implements DialogInterface.OnClickListener, DialogEdition.Communicator, DialogCreate.Communicator{
 	
 	//Variable constante
     static String KEY_ID = "id";
@@ -44,11 +39,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
 	//Variables 
 	Button addTodoButton;
-	DatePicker deadLinePicker;
-	EditText todo_title;
-	EditText todo_message;
-	String dateString;
-	View promptsView;
 	ListView list;
     DatabaseHandler db;
 	
@@ -77,7 +67,12 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     	
     	//Buttons
     	addTodoButton = (Button) findViewById(R.id.addTodoButton);
-    	addTodoButton.setOnClickListener(this);
+    	addTodoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                showCreateDialog(1);
+            }
+        });
     	list = (ListView) findViewById(R.id.listView1);			
     }
 
@@ -89,6 +84,15 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         editionDialog.setArguments(bundle);
 		editionDialog.show(manager,"editionDialog");
 	}
+
+    public void showCreateDialog(int position){
+        FragmentManager manager = getSupportFragmentManager();
+        Bundle bundle = new Bundle();
+        bundle.putInt("position", position);
+        DialogCreate createDialog = new DialogCreate();
+        createDialog.setArguments(bundle);
+        createDialog.show(manager,"createDialog");
+    }
 
 
 	public void buildList() {
@@ -139,60 +143,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
 	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		// init inflated view
-		LayoutInflater li = LayoutInflater.from(this);
-		promptsView = li.inflate(R.layout.todo_form, null);
-		//init dialog alert
-		AlertDialog.Builder todoForm = new AlertDialog.Builder(this);
-		// set prompts.xml to alertdialog builder
-		todoForm.setView(promptsView);
-		
-		//form field text
-		todo_title = (EditText) promptsView.findViewById(R.id.todo_name_input);
-		todo_message = (EditText) promptsView.findViewById(R.id.todo_message_input);
-		
-		todoForm.setCancelable(false)
-		.setPositiveButton("OK",
-				  new DialogInterface.OnClickListener() {
-				    @Override
-					public void onClick(DialogInterface dialog,int id) {
-
-				    	//radio button
-				    	RadioGroup todo_priority = (RadioGroup)promptsView.findViewById( R.id.todo_priority_input );
-						int radioButtonID = todo_priority.getCheckedRadioButtonId();
-						View radioButton = todo_priority.findViewById(radioButtonID);
-						final int idx = todo_priority.indexOfChild(radioButton);
-						// ---- fin ration button
-						
-				    	//DATE PICKER
-				    	deadLinePicker = (DatePicker) promptsView.findViewById(R.id.todo_dead_line_input);
-						SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());			
-						Calendar calendar = Calendar.getInstance();
-						calendar.set(deadLinePicker.getYear(), deadLinePicker.getMonth() + 1, deadLinePicker.getDayOfMonth());		
-						Date dateFromDatePicker = calendar.getTime();				  
-						dateString =  (dateFormat.format(dateFromDatePicker));
-						//----- fin date picker
-						
-				        ModelTodos model = new ModelTodos(idx, todo_title.getText().toString(), todo_message.getText().toString(),dateString); 
-				        db.addTodo(model);
-				        buildList();
-				    }
-				  })
-				.setNegativeButton("Cancel",
-				  new DialogInterface.OnClickListener() {
-				    @Override
-					public void onClick(DialogInterface dialog,int id) {
-					dialog.cancel();
-				    }
-				  }).create();
-
-			// show it
-			todoForm.show();
-		
-	}
-	@Override
 	public void onClick(DialogInterface dialog, int which) {
 		// TODO Auto-generated method stub
 		
@@ -215,5 +165,12 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     public void doneTodo(String message, int position) {
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
         db.getTodo(position).setStatusTodo(0);
+    }
+
+    //METHODS OF THE DIALOG CREATE FRAGMENT
+    @Override
+    public void addTodoToDb(ModelTodos model) {
+        db.addTodo(model);
+        buildList();
     }
 }
