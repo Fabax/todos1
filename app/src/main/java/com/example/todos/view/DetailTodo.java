@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -14,7 +15,7 @@ public class DetailTodo extends Activity {
 	private TextView contentTodo;
 	private TextView deadlineTodo;
 	private TextView priorityTodo;
-    private TextView categoryTodo;
+    private ImageView categoryTodo;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class DetailTodo extends Activity {
         Intent i = getIntent();
         // Receiving the Data
         String title = i.getStringExtra("title");
-        String priority = i.getStringExtra("priority");
+        //String priority = i.getStringExtra("priority");
         String content = i.getStringExtra("content");
         String deadline = i.getStringExtra("deadline");
         String category = i.getStringExtra("category");
@@ -34,8 +35,29 @@ public class DetailTodo extends Activity {
         titleTodo.setText(title);
         contentTodo.setText(content);
         deadlineTodo.setText(deadline);
-        priorityTodo.setText(priority);
-        categoryTodo.setText(category);
+       // priorityTodo.setText(priority);
+
+        if(category.contains("Travail")){
+            categoryTodo.setImageResource(R.drawable.cabinet);
+        }else if(category.contains("Famille")){
+            categoryTodo.setImageResource(R.drawable.home);
+        }else if(category.contains("Divers")){
+            categoryTodo.setImageResource(R.drawable.bell);
+        }else if(category.contains("Loisirs")){
+            categoryTodo.setImageResource(R.drawable.color_palette);
+        }else if(category.contains("Romantique")){
+            categoryTodo.setImageResource(R.drawable.heart);
+        }else if(category.contains("Café")){
+            categoryTodo.setImageResource(R.drawable.coffee);
+        }else if(category.contains("Jeux")){
+            categoryTodo.setImageResource(R.drawable.game_pad);
+        }else if(category.contains("Voyage")){
+            categoryTodo.setImageResource(R.drawable.compass);
+        }else if(category.contains("Travaux")){
+            categoryTodo.setImageResource(R.drawable.wrench);
+        }else if(category.contains("Docteur")){
+            categoryTodo.setImageResource(R.drawable.oscilloscope);
+        }
 	}
 	
     public void setViews(){
@@ -45,7 +67,6 @@ public class DetailTodo extends Activity {
         contentTodo = (TextView) findViewById(R.id.detail_content_output);
         deadlineTodo = (TextView) findViewById(R.id.detail_deadline_output);
         priorityTodo = (TextView) findViewById(R.id.detail_priority_output);
-        categoryTodo = (TextView) findViewById(R.id.detail_category_output);
-    		
+        categoryTodo = (ImageView) findViewById(R.id.deatail_image_category);
     }
 }

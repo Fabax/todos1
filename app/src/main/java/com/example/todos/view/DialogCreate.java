@@ -113,7 +113,7 @@ public class DialogCreate extends DialogFragment  {
                             communicator.updateTodo(model);
                         }else{
                             communicator.addTodoToDb(model);
-                          
+
                         }
 
 
