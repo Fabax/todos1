@@ -18,6 +18,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -25,6 +27,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -40,9 +43,10 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
     static String KEY_CATEGORY = "category";
 
     //Variables
-	Button addTodoButton;
+	Button addTodoButton, filter;
 	ListView list;
     DatabaseHandler db;
+    EditText inputSearch;
 	
 	List<HashMap<String,String>> todoCollection;
 	
@@ -75,7 +79,42 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
                 showCreateDialog(1, false);
             }
         });
-    	list = (ListView) findViewById(R.id.listView1);			
+
+        inputSearch = (EditText) findViewById(R.id.search_input);
+        inputSearch.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
+                // When user changed the Text
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+                                          int arg3) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable arg0) {
+                // TODO Auto-generated method stub
+                String filter = String.valueOf(inputSearch.getText());
+                buildFilteredList(filter, false);
+            }
+             });
+
+        filter = (Button) findViewById(R.id.filter_button);
+        filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+
+            }
+        });
+
+    	list = (ListView) findViewById(R.id.listView1);
+
+
     }
 
 	public void showEditionDialog(int position){
@@ -117,9 +156,78 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
 
     }
 
+    public void buildFilteredList(String _filter, boolean _isAFilter){
+        List<ModelTodos> todos = db.getAllTodos();
+        List<ModelTodos> todoFiltered = new ArrayList<ModelTodos>();;
+
+        if(_filter != ""){
+            if(_isAFilter){
+                for (ModelTodos todo : todos) {
+                    if(todo.getTodoCategory().contains(_filter)){
+                        todoFiltered.add(todo);
+                    }
+                }
+            }else{
+                for (ModelTodos todo : todos) {
+                    if(todo.getTodoTitle().contains(_filter)){
+                        todoFiltered.add(todo);
+                    }
+                }
+            }
+
+
+                todoCollection = new ArrayList<HashMap<String,String>>();
+                HashMap<String,String> map = null;
+
+                for (ModelTodos todob : todoFiltered) {
+                    map = new HashMap<String,String>();
+
+                    map.put(KEY_ID,Integer.toString(todob.getID()));
+                    map.put(KEY_TITLE, todob.getTodoTitle());
+                    map.put(KEY_PRIORITY, Integer.toString(todob.getPriority()));
+                    map.put(KEY_CONTENT, todob.getTodoContent());
+                    map.put(KEY_DEADLINE, todob.getTodoDeadline());
+                    map.put(KEY_CATEGORY, todob.getTodoCategory());
+                    map.put(KEY_STATUS, Integer.toString(todob.getStatusTodo()));
+
+                    //Add to the Arraylist
+                    todoCollection.add(map);
+                }
+
+
+                ListAdapter bindingData = new ListAdapter(this,todoCollection);
+                list.setAdapter(bindingData);
+
+                // bind the click in the item
+                list.setOnItemClickListener(new OnItemClickListener() {
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Intent intentDetail = new Intent(MainActivity.this, DetailTodo.class);
+                        intentDetail.putExtra("title", todoCollection.get(position).get(KEY_TITLE));
+                        intentDetail.putExtra("category", todoCollection.get(position).get(KEY_CATEGORY));
+                        intentDetail.putExtra("priority", todoCollection.get(position).get(KEY_PRIORITY));
+                        intentDetail.putExtra("content", todoCollection.get(position).get(KEY_CONTENT));
+                        intentDetail.putExtra("deadline", todoCollection.get(position).get(KEY_DEADLINE));
+                        startActivity(intentDetail);
+                    }
+                });
+
+                list.setOnItemLongClickListener(new OnItemLongClickListener() {
+                    public boolean onItemLongClick(AdapterView<?> arg0, View arg1,int position, long id) {
+                        int i = Integer.parseInt(todoCollection.get(position).get(KEY_ID));
+                        showEditionDialog(i);
+                        return true;
+                    }
+                });
+            }
+        else{
+            buildList();
+        }
+
+    }
+
+
 
 	public void buildList() {
-    	Log.v("constructList()", "constructList()");
     	List<ModelTodos> todos = db.getAllTodos();      
     	
     	

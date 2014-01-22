@@ -2,14 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/paper_background"
     android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Ajouter une tache"
+            android:id="@+id/textView3"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:id="@+id/icon_todo_form"
+            android:background="@drawable/button_add"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" />
+    </RelativeLayout>
 
     <EditText
         android:id="@+id/todo_name_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="titre" >
+        android:hint="titre"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp">
 
         <requestFocus />
     </EditText>
@@ -20,15 +46,31 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="note"
-        android:inputType="textMultiLine" />
+        android:inputType="textMultiLine"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Importance"
+        android:id="@+id/textView"
+        android:layout_marginTop="5dp"
+        android:gravity="center" />
 
     <RadioGroup
         android:id="@+id/todo_priority_input"
         style="@style/AppBaseTheme"
-        android:layout_width="wrap_content"
+        android:layout_width="279dp"
         android:layout_height="wrap_content"
         android:gravity="left"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp">
 
         <RadioButton
             android:id="@+id/radio0"
@@ -51,16 +93,29 @@
 
     </RadioGroup>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Catégorie"
+        android:id="@+id/textView2"
+        android:layout_marginLeft="5dp"
+        android:gravity="center"
+        android:layout_marginTop="5dp" />
+
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner" />
+        android:id="@+id/spinner"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" />
 
     <DatePicker
-        android:id="@+id/todo_dead_line_input"
+    android:id="@+id/todo_dead_line_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:measureAllChildren="true" />
+
 
 </LinearLayout>
 <!-- From: file:/Users/fabien/Documents/Etudes/Master/2e%20année/todos1/app/src/main/res/layout/todo_form.xml -->

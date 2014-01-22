@@ -21,9 +21,10 @@
         <ImageView
             android:id="@+id/list_image"
             android:layout_width="50dip"
-            android:layout_height="79dp"
+            android:layout_height="50dp"
             android:layout_weight="18.59"
-            android:src="@drawable/bell" />
+            android:src="@drawable/bell"
+            android:padding="0sp" />
     </LinearLayout>
 
     <!-- Title of note -->
@@ -33,14 +34,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/thumbnail"
-        android:layout_toRightOf="@+id/thumbnail"
         android:text="Faire les courses"
         android:textColor="#040404"
         android:textSize="15dip"
         android:textStyle="bold"
         android:typeface="sans"
-        android:layout_alignBottom="@+id/imageView1"
-        android:layout_toLeftOf="@+id/imageView1" />
+        android:layout_toLeftOf="@+id/imageView1"
+        android:layout_alignBottom="@+id/thumbnail"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="0dp"
+        android:autoText="false"
+        android:gravity="center" />
 
     <!-- Description of the todo -->
 
@@ -66,8 +72,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/arrow" />
+        android:src="@drawable/arrow"
+        android:layout_alignBottom="@+id/todo_list_title_output" />
 
 
 </RelativeLayout>

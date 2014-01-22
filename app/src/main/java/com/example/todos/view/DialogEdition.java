@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.todos.R;
 import com.example.todos.model.DatabaseHandler;
@@ -18,7 +19,7 @@ import com.example.todos.model.DatabaseHandler;
  */
 public class DialogEdition extends DialogFragment {
 
-    Button cancel, edit, remove, done;
+    ImageButton cancel, edit, remove, done;
     View currentView ;
     DatabaseHandler db;
     Communicator communicator;
@@ -44,10 +45,10 @@ public class DialogEdition extends DialogFragment {
         currentView = inflater.inflate(R.layout.dialog_manage, null);
 
 
-        cancel = (Button) currentView.findViewById(R.id.dialog_manage_cancel);
-        edit = (Button) currentView.findViewById(R.id.dialog_manage_editer);
-        remove = (Button) currentView.findViewById(R.id.dialog_manage_delete);
-        done = (Button) currentView.findViewById(R.id.dialog_manage_done);
+        cancel = (ImageButton) currentView.findViewById(R.id.dialog_manage_cancel);
+        edit = (ImageButton) currentView.findViewById(R.id.dialog_manage_editer);
+        remove = (ImageButton) currentView.findViewById(R.id.dialog_manage_delete);
+        done = (ImageButton) currentView.findViewById(R.id.dialog_manage_done);
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override

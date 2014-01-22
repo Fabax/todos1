@@ -5,13 +5,36 @@
     android:paddingTop="2dp"
     tools:context=".MainActivity" >
 
-    <Button
-        android:id="@+id/addTodoButton"
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="Ajouter une todo" />
+        android:id="@+id/relativeLayout">
+
+        <Button
+            android:id="@+id/addTodoButton"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="Ajouter" />
+
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:text="filtre"
+            android:id="@+id/filter_button"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/addTodoButton" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/search_input"
+            android:layout_toLeftOf="@+id/filter_button"
+            android:layout_alignParentLeft="true"
+            android:hint="Rechercher" />
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/listView1"
@@ -19,9 +42,8 @@
         android:layout_height="wrap_content"
         android:divider="#b5b5b5"
         android:dividerHeight="1dp"
-        android:listSelector="@drawable/list_selector" 
-        android:layout_alignRight="@+id/addTodoButton"
-        android:layout_below="@+id/addTodoButton" >
+        android:listSelector="@drawable/list_selector"
+        android:layout_below="@+id/relativeLayout">
     </ListView>
-   
+
 </RelativeLayout>

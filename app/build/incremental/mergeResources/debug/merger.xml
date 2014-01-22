@@ -225,6 +225,46 @@ Docteur
                 <dimen name="activity_horizontal_margin" >128dp
                 </dimen>
             </file>
+            <file
+                name="paper_background"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/paper_background.xml"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="lined_paper"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/lined_paper.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="button_add"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/button_add.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="button_check"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/button_check.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="gplaypattern"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/gplaypattern.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="pencil"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/pencil.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="button_undo"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/button_undo.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="button_remove"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/button_remove.png"
+                qualifiers="hdpi"
+                type="drawable" />
         </source>
         <source path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/build/res/rs/debug" />
     </dataSet>

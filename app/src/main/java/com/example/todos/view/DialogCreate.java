@@ -94,7 +94,6 @@ public class DialogCreate extends DialogFragment  {
             update = false;
         }
         //----- fin date picker
-
         builder.setView(promptsView);
         builder.setPositiveButton("OK",
                 new DialogInterface.OnClickListener() {
