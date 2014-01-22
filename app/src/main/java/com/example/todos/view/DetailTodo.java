@@ -26,7 +26,7 @@ public class DetailTodo extends Activity {
         Intent i = getIntent();
         // Receiving the Data
         String title = i.getStringExtra("title");
-        //String priority = i.getStringExtra("priority");
+        String priority = i.getStringExtra("priority");
         String content = i.getStringExtra("content");
         String deadline = i.getStringExtra("deadline");
         String category = i.getStringExtra("category");
@@ -66,7 +66,7 @@ public class DetailTodo extends Activity {
     	titleTodo = (TextView) findViewById(R.id.detail_todo_title);
         contentTodo = (TextView) findViewById(R.id.detail_content_output);
         deadlineTodo = (TextView) findViewById(R.id.detail_deadline_output);
-        priorityTodo = (TextView) findViewById(R.id.detail_priority_output);
+        //priorityTodo = (TextView) findViewById(R.id.detail_priority_output);
         categoryTodo = (ImageView) findViewById(R.id.deatail_image_category);
     }
 }

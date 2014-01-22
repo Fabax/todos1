@@ -66,7 +66,7 @@ public class ListAdapter extends BaseAdapter {
 	    	vi = inflater.inflate(R.layout.list_row, null);
 	      holder = new ViewHolder();
 	      holder.title = (TextView)vi.findViewById(R.id.todo_list_title_output); // title task
-	      holder.description = (TextView)vi.findViewById(R.id.todo_list_description_output); // description task
+	     // holder.description = (TextView)vi.findViewById(R.id.todo_list_description_output); // description task
 	      holder.deadline = (TextView)vi.findViewById(R.id.todo_list_deadline_output); // date tas
           holder.category = (ImageView)vi.findViewById(R.id.list_image);
 	      vi.setTag(holder);
@@ -78,7 +78,7 @@ public class ListAdapter extends BaseAdapter {
 	   
 	    // Setting all values in listview	      
 	    holder.title.setText(todoCollection.get(position).get(KEY_TITLE));
-	    holder.description.setText(todoCollection.get(position).get(KEY_DESCRIPTION));
+	   // holder.description.setText(todoCollection.get(position).get(KEY_DESCRIPTION));
 	    holder.deadline.setText(todoCollection.get(position).get(KEY_DEADLINE));
 
 
@@ -132,7 +132,7 @@ public class ListAdapter extends BaseAdapter {
 	static class ViewHolder{
 		TextView title;
 		TextView deadline;
-		TextView description;
+		//TextView description;
         ImageView category;
 	}
 

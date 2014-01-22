@@ -38,7 +38,9 @@
         android:textColor="#040404"
         android:textSize="15dip"
         android:textStyle="bold"
-        android:typeface="sans" />
+        android:typeface="sans"
+        android:layout_alignBottom="@+id/imageView1"
+        android:layout_toLeftOf="@+id/imageView1" />
 
     <!-- Description of the todo -->
 
@@ -66,18 +68,6 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:src="@drawable/arrow" />
-
-    <TextView
-        android:id="@+id/todo_list_description_output"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/thumbnail"
-        android:layout_below="@+id/todo_list_title_output"
-        android:layout_toRightOf="@+id/thumbnail"
-        android:text="Aller chez leclerc avec ma mère"
-        android:textColor="#343434"
-        android:textSize="10dip" />
-
 
 
 </RelativeLayout><!-- From: file:/Users/fabien/Documents/Etudes/Master/2e%20année/todos1/app/src/main/res/layout/list_row.xml -->

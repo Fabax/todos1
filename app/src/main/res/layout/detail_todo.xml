@@ -26,15 +26,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:paddingLeft="20dp"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/deatail_image_category" />
-
-        <TextView
-            android:id="@+id/detail_deadline_output"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Date Deadline"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/deatail_image_category"
             android:layout_alignParentRight="true" />
 
     </RelativeLayout>
@@ -44,6 +36,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:layout_marginLeft="20dp" />
+
+    <TextView
+        android:id="@+id/detail_deadline_output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date Deadline"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
         android:layout_marginLeft="20dp" />
 
 </LinearLayout>

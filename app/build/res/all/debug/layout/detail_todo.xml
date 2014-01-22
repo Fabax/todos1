@@ -2,37 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
 
-        <TextView
-            android:id="@+id/detail_todo_title"
-            android:layout_width="171dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/deatail_image_category"
+            android:baselineAlignBottom="true"
             android:layout_alignParentTop="true"
-            android:text="Large Text"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:layout_alignParentLeft="true" />
 
         <TextView
             android:id="@+id/detail_todo_title"
             android:layout_width="171dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/detail_todo_title"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TextView
-            android:id="@+id/detail_deadline_output"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:text="Date Deadline"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:paddingLeft="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/deatail_image_category"
+            android:layout_alignParentRight="true" />
 
     </RelativeLayout>
 
@@ -40,18 +35,17 @@
         android:id="@+id/detail_content_output"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="TextView"
+        android:layout_marginLeft="20dp" />
 
     <TextView
-        android:id="@+id/detail_priority_output"
+        android:id="@+id/detail_deadline_output"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/detail_category_output"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="Date Deadline"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="20dp" />
 
 </LinearLayout><!-- From: file:/Users/fabien/Documents/Etudes/Master/2e%20année/todos1/app/src/main/res/layout/detail_todo.xml -->
