@@ -147,14 +147,12 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
         if(bool){
             title = db.getTodo(position).getTodoTitle();
             content = db.getTodo(position).getTodoContent();
-            priority = db.getTodo(position).getPriority();
+
 
             Bundle bundle = new Bundle();
             bundle.putString("title", title);
             bundle.putString("content", content);
-            bundle.putInt("priority", priority);
 
-            Toast.makeText(this,"show create : " + title +" "+content +" "+ priority,Toast.LENGTH_SHORT).show();
 
             createDialog.setArguments(bundle);
             createDialog.show(manager,"createDialog");
@@ -240,7 +238,6 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
             map.put(KEY_DEADLINE, todo.getTodoDeadline());
             map.put(KEY_CATEGORY, todo.getTodoCategory());
             map.put(KEY_STATUS, Integer.toString(todo.getStatusTodo()));
-            Toast.makeText(this,Integer.toString(todo.getStatusTodo()),Toast.LENGTH_SHORT).show();
 
             //Add to the Arraylist
             todoCollection.add(map);
@@ -294,7 +291,6 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
     @Override
     public void onEditEntry(String message, int position) {
         showCreateDialog(position,true);
-        Toast.makeText(this,message + position,Toast.LENGTH_SHORT).show();
     }
 
     @Override
