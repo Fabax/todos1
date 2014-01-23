@@ -6,16 +6,16 @@
     <string name="hello_world">Hello world!</string>
     <string name="alert_edition_title">Quelle operation shouaitez vous effectuer ? </string>
     <string-array name="categories">
-        <item>Travail</item>
-        <item>Famille</item>
-        <item>Divers</item>
-        <item>Loisirs</item>
-        <item>Romantique</item>
-        <item>Café</item>
-        <item>Jeux</item>
-        <item>Voyage</item>
-        <item>Travaux</item>
-        <item>Docteur</item>
+        <item>travail</item>
+        <item>famille</item>
+        <item>divers</item>
+        <item>loisirs</item>
+        <item>romantique</item>
+        <item>café</item>
+        <item>jeux</item>
+        <item>voyage</item>
+        <item>travaux</item>
+        <item>docteur</item>
     </string-array>
 
 </resources>

@@ -69,11 +69,9 @@ public class DialogCreate extends DialogFragment  {
 
         //DATE PICKER
         deadLinePicker = (DatePicker) promptsView.findViewById(R.id.todo_dead_line_input);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(deadLinePicker.getYear(), deadLinePicker.getMonth() + 1, deadLinePicker.getDayOfMonth());
-        Date dateFromDatePicker = calendar.getTime();
-        dateString = (dateFormat.format(dateFromDatePicker));
+        final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+        final Calendar calendar = Calendar.getInstance();
+
 
 
         //Get BUNDLE
@@ -100,12 +98,18 @@ public class DialogCreate extends DialogFragment  {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         //radio button
-
                         int radioButtonID = todo_priority.getCheckedRadioButtonId();
                         View radioButton = todo_priority.findViewById(radioButtonID);
                         int idx = todo_priority.indexOfChild(radioButton);
 
+                        //spinner
                         category = spinner.getSelectedItem().toString();
+
+                        //date picker
+                        calendar.set(deadLinePicker.getYear(), deadLinePicker.getMonth() + 1, deadLinePicker.getDayOfMonth());
+                        Date dateFromDatePicker = calendar.getTime();
+                        dateString = (dateFormat.format(dateFromDatePicker));
+
                         ModelTodos model = new ModelTodos(idx, todo_title.getText().toString(), todo_message.getText().toString(), dateString, category);
 
                         if(update){

@@ -161,34 +161,34 @@
 
                 <string-array name="categories" >
                     <item>
-Travail
+travail
                     </item>
                     <item>
-Famille
+famille
                     </item>
                     <item>
-Divers
+divers
                     </item>
                     <item>
-Loisirs
+loisirs
                     </item>
                     <item>
-Romantique
+romantique
                     </item>
                     <item>
-Café
+café
                     </item>
                     <item>
-Jeux
+jeux
                     </item>
                     <item>
-Voyage
+voyage
                     </item>
                     <item>
-Travaux
+travaux
                     </item>
                     <item>
-Docteur
+docteur
                     </item>
                 </string-array>
 
@@ -265,6 +265,11 @@ Docteur
                 path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/drawable-hdpi/button_remove.png"
                 qualifiers="hdpi"
                 type="drawable" />
+            <file
+                name="dialog_filtre"
+                path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/src/main/res/layout/dialog_filtre.xml"
+                qualifiers=""
+                type="layout" />
         </source>
         <source path="/Users/fabien/Documents/Etudes/Master/2e année/todos1/app/build/res/rs/debug" />
     </dataSet>

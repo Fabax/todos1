@@ -33,7 +33,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class MainActivity extends FragmentActivity implements DialogInterface.OnClickListener, DialogEdition.Communicator, DialogCreate.Communicator{
+public class MainActivity extends FragmentActivity implements DialogInterface.OnClickListener, DialogEdition.Communicator, DialogCreate.Communicator, DialogFilter.Communicator{
 	
 	//Variable constante
     static String KEY_ID = "id";
@@ -103,7 +103,7 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
             public void afterTextChanged(Editable arg0) {
                 // TODO Auto-generated method stub
                 String filter = String.valueOf(inputSearch.getText());
-                buildSearchedLis(filter, false);
+                buildSearchedLis(filter);
             }
              });
 
@@ -111,12 +111,7 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
         filter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                if(bool){
-                    bool = false;
-                }else{
-                    bool = true;
-                }
-                buildFiltedList("priority",bool);
+                showFilterDialog();
             }
         });
 
@@ -133,6 +128,12 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
         editionDialog.setArguments(bundle);
 		editionDialog.show(manager,"editionDialog");
 	}
+
+    public void showFilterDialog(){
+        FragmentManager manager = getSupportFragmentManager();
+        DialogFilter editionDialog = new DialogFilter();
+        editionDialog.show(manager,"filterDialog");
+    }
 
     public void showCreateDialog(int position, boolean bool){
 
@@ -164,24 +165,19 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
 
     }
 
-    public void buildSearchedLis(String _filter, boolean _isAFilter){
+    public void buildSearchedLis(String _filter){
         List<ModelTodos> todos = db.getAllTodos();
         List<ModelTodos> todoFiltered = new ArrayList<ModelTodos>();;
 
         if(_filter != ""){
-            if(_isAFilter){
                 for (ModelTodos todo : todos) {
                     if(todo.getTodoCategory().contains(_filter)){
                         todoFiltered.add(todo);
-                    }
-                }
-            }else{
-                for (ModelTodos todo : todos) {
-                    if(todo.getTodoTitle().contains(_filter)){
+                    }else if(todo.getTodoTitle().contains(_filter)){
                         todoFiltered.add(todo);
                     }
                 }
-            }
+
             buildList(todoFiltered);
             }
         else{
@@ -189,7 +185,6 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
         }
 
     }
-
 
     public void buildFiltedList(String _filter, boolean reverse){
         List<ModelTodos> todos = db.getAllTodos();
@@ -276,8 +271,6 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
         });
     }
 
-
-
 	public void buildCompleteList() {
     	List<ModelTodos> todos = db.getAllTodos();
         buildList(todos);
@@ -324,5 +317,10 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
         Toast.makeText(this,"item updated" + modelString,Toast.LENGTH_SHORT).show();
         db.updateTodo(model);
         buildCompleteList();
+    }
+
+    @Override
+    public void reorderList(String string) {
+        buildFiltedList(string,false);
     }
 }

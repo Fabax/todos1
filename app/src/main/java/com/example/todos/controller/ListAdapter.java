@@ -88,25 +88,25 @@ public class ListAdapter extends BaseAdapter {
         String status = todoCollection.get(position).get(KEY_STATUS);
 	    Log.v("priority",priority);
 
-        if(myCategory.contains("Travail")){
+        if(myCategory.contains("travail")){
             holder.category.setImageResource(R.drawable.cabinet);
-        }else if(myCategory.contains("Famille")){
+        }else if(myCategory.contains("famille")){
             holder.category.setImageResource(R.drawable.home);
-        }else if(myCategory.contains("Divers")){
+        }else if(myCategory.contains("divers")){
             holder.category.setImageResource(R.drawable.bell);
-        }else if(myCategory.contains("Loisirs")){
+        }else if(myCategory.contains("loisirs")){
             holder.category.setImageResource(R.drawable.color_palette);
-        }else if(myCategory.contains("Romantique")){
+        }else if(myCategory.contains("romantique")){
             holder.category.setImageResource(R.drawable.heart);
-        }else if(myCategory.contains("Café")){
+        }else if(myCategory.contains("café")){
             holder.category.setImageResource(R.drawable.coffee);
-        }else if(myCategory.contains("Jeux")){
+        }else if(myCategory.contains("jeux")){
             holder.category.setImageResource(R.drawable.game_pad);
-        }else if(myCategory.contains("Voyage")){
+        }else if(myCategory.contains("voyage")){
             holder.category.setImageResource(R.drawable.compass);
-        }else if(myCategory.contains("Travaux")){
+        }else if(myCategory.contains("travaux")){
             holder.category.setImageResource(R.drawable.wrench);
-        }else if(myCategory.contains("Docteur")){
+        }else if(myCategory.contains("docteur")){
             holder.category.setImageResource(R.drawable.oscilloscope);
         }
 
