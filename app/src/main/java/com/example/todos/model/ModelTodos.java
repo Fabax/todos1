@@ -12,7 +12,7 @@ public class ModelTodos {
      
     // Empty constructor
     public ModelTodos(){
-         
+
     }
     // constructor
     public ModelTodos(int id, int _priority, String _todoTitle, String _todoContent,String _todoCategory){
@@ -21,16 +21,15 @@ public class ModelTodos {
         this._todoTitle = _todoTitle;
         this._todoContent = _todoContent;
         this._todoContent = _todoCategory;
-        this._statusTodo = 1;
     }
 
     public ModelTodos(int _priority, String _todoTitle, String _todoContent, String _deadline, String _category){
         this._priority = _priority;
         this._todoTitle = _todoTitle;
         this._todoContent = _todoContent;
-        this._statusTodo = 1;
         this._todoDeadline = _deadline;
         this._todoCategory = _category;
+        this._statusTodo = 1;
     }
      
 

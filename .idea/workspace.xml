@@ -109,7 +109,7 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/todos/view/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="131" column="33" selection-start="4092" selection-end="4092" vertical-scroll-proportion="4.0426965" vertical-offset="31" max-vertical-offset="3390">
+            <state line="302" column="42" selection-start="10462" selection-end="10475" vertical-scroll-proportion="0.3955056" vertical-offset="3544" max-vertical-offset="4035">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
@@ -125,12 +125,10 @@
                 <element signature="e#6882#6883#0" expanded="true" />
                 <element signature="e#6984#7242#0" expanded="true" />
                 <element signature="e#7227#7228#0" expanded="true" />
-                <element signature="method#buildList#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#buildCompleteList#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#onDeleteEntry#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#onEditEntry#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#doneTodo#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#addTodoToDb#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#updateTodo#0;class#MainActivity#0" expanded="false" />
               </folding>
@@ -141,8 +139,20 @@
       <file leaf-file-name="ListAdapter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/todos/controller/ListAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="39" selection-start="3869" selection-end="3869" vertical-scroll-proportion="0.0" vertical-offset="1095" max-vertical-offset="1965">
+            <state line="110" column="29" selection-start="3761" selection-end="3761" vertical-scroll-proportion="0.0" vertical-offset="1361" max-vertical-offset="1860">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModelTodos.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/todos/model/ModelTodos.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="41" selection-start="871" selection-end="871" vertical-scroll-proportion="0.0" vertical-offset="41" max-vertical-offset="1110">
+              <folding>
+                <element signature="e#1755#1756#0" expanded="true" />
+                <element signature="e#1800#1801#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -566,16 +576,16 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_manage.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/todos/model/ModelTodos.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/todos/model/DatabaseHandler.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/filtre.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/todos/view/DialogFilter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/todos/view/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_filtre.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/todo_form.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/todos/view/DialogCreate.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/todos/view/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/todos/controller/ListAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/todos/model/ModelTodos.java" />
       </list>
     </option>
   </component>
@@ -743,45 +753,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="todos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="todos1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="todos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -816,36 +792,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="todos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="todos1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="todos" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1168,12 +1114,10 @@
             <element signature="e#6882#6883#0" expanded="true" />
             <element signature="e#6984#7242#0" expanded="true" />
             <element signature="e#7227#7228#0" expanded="true" />
-            <element signature="method#buildList#0;class#MainActivity#0" expanded="false" />
             <element signature="method#buildCompleteList#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onDeleteEntry#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onEditEntry#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#doneTodo#0;class#MainActivity#0" expanded="false" />
             <element signature="method#addTodoToDb#0;class#MainActivity#0" expanded="false" />
             <element signature="method#updateTodo#0;class#MainActivity#0" expanded="false" />
           </folding>
@@ -1324,13 +1268,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/todos/model/ModelTodos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="83" selection-start="758" selection-end="764" vertical-scroll-proportion="0.0" vertical-offset="127" max-vertical-offset="1095">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/todos/view/DialogCreate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="71" column="14" selection-start="2330" selection-end="2330" vertical-scroll-proportion="0.986014" vertical-offset="0" max-vertical-offset="1875">
@@ -1366,13 +1303,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/todos/controller/ListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="39" selection-start="3869" selection-end="3869" vertical-scroll-proportion="0.0" vertical-offset="1095" max-vertical-offset="1965">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_filtre.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="44" column="35" selection-start="1627" selection-end="1627" vertical-scroll-proportion="-19.851852" vertical-offset="124" max-vertical-offset="825">
@@ -1392,9 +1322,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/todos/controller/ListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="29" selection-start="3761" selection-end="3761" vertical-scroll-proportion="0.0" vertical-offset="1361" max-vertical-offset="1860">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/todos/model/ModelTodos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="41" selection-start="871" selection-end="871" vertical-scroll-proportion="0.0" vertical-offset="41" max-vertical-offset="1110">
+          <folding>
+            <element signature="e#1755#1756#0" expanded="true" />
+            <element signature="e#1800#1801#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/todos/view/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="33" selection-start="4092" selection-end="4092" vertical-scroll-proportion="4.0426965" vertical-offset="31" max-vertical-offset="3390">
+        <state line="302" column="42" selection-start="10462" selection-end="10475" vertical-scroll-proportion="0.3955056" vertical-offset="3544" max-vertical-offset="4035">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
@@ -1410,12 +1357,10 @@
             <element signature="e#6882#6883#0" expanded="true" />
             <element signature="e#6984#7242#0" expanded="true" />
             <element signature="e#7227#7228#0" expanded="true" />
-            <element signature="method#buildList#0;class#MainActivity#0" expanded="false" />
             <element signature="method#buildCompleteList#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onDeleteEntry#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onEditEntry#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#doneTodo#0;class#MainActivity#0" expanded="false" />
             <element signature="method#addTodoToDb#0;class#MainActivity#0" expanded="false" />
             <element signature="method#updateTodo#0;class#MainActivity#0" expanded="false" />
           </folding>

@@ -240,6 +240,7 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
             map.put(KEY_DEADLINE, todo.getTodoDeadline());
             map.put(KEY_CATEGORY, todo.getTodoCategory());
             map.put(KEY_STATUS, Integer.toString(todo.getStatusTodo()));
+            Toast.makeText(this,Integer.toString(todo.getStatusTodo()),Toast.LENGTH_SHORT).show();
 
             //Add to the Arraylist
             todoCollection.add(map);
