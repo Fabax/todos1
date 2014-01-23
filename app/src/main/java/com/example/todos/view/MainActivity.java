@@ -3,6 +3,8 @@ package com.example.todos.view;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -47,6 +49,7 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
 	ListView list;
     DatabaseHandler db;
     EditText inputSearch;
+    boolean bool = true;
 	
 	List<HashMap<String,String>> todoCollection;
 	
@@ -56,7 +59,7 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
         db = new DatabaseHandler(this);
         setViews();
         //construct the list
-        buildList();
+        buildCompleteList();
             
     }
 
@@ -100,7 +103,7 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
             public void afterTextChanged(Editable arg0) {
                 // TODO Auto-generated method stub
                 String filter = String.valueOf(inputSearch.getText());
-                buildFilteredList(filter, false);
+                buildSearchedLis(filter, false);
             }
              });
 
@@ -108,7 +111,12 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
         filter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-
+                if(bool){
+                    bool = false;
+                }else{
+                    bool = true;
+                }
+                buildFiltedList("priority",bool);
             }
         });
 
@@ -156,7 +164,7 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
 
     }
 
-    public void buildFilteredList(String _filter, boolean _isAFilter){
+    public void buildSearchedLis(String _filter, boolean _isAFilter){
         List<ModelTodos> todos = db.getAllTodos();
         List<ModelTodos> todoFiltered = new ArrayList<ModelTodos>();;
 
@@ -174,105 +182,105 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
                     }
                 }
             }
-
-
-                todoCollection = new ArrayList<HashMap<String,String>>();
-                HashMap<String,String> map = null;
-
-                for (ModelTodos todob : todoFiltered) {
-                    map = new HashMap<String,String>();
-
-                    map.put(KEY_ID,Integer.toString(todob.getID()));
-                    map.put(KEY_TITLE, todob.getTodoTitle());
-                    map.put(KEY_PRIORITY, Integer.toString(todob.getPriority()));
-                    map.put(KEY_CONTENT, todob.getTodoContent());
-                    map.put(KEY_DEADLINE, todob.getTodoDeadline());
-                    map.put(KEY_CATEGORY, todob.getTodoCategory());
-                    map.put(KEY_STATUS, Integer.toString(todob.getStatusTodo()));
-
-                    //Add to the Arraylist
-                    todoCollection.add(map);
-                }
-
-
-                ListAdapter bindingData = new ListAdapter(this,todoCollection);
-                list.setAdapter(bindingData);
-
-                // bind the click in the item
-                list.setOnItemClickListener(new OnItemClickListener() {
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Intent intentDetail = new Intent(MainActivity.this, DetailTodo.class);
-                        intentDetail.putExtra("title", todoCollection.get(position).get(KEY_TITLE));
-                        intentDetail.putExtra("category", todoCollection.get(position).get(KEY_CATEGORY));
-                        intentDetail.putExtra("priority", todoCollection.get(position).get(KEY_PRIORITY));
-                        intentDetail.putExtra("content", todoCollection.get(position).get(KEY_CONTENT));
-                        intentDetail.putExtra("deadline", todoCollection.get(position).get(KEY_DEADLINE));
-                        startActivity(intentDetail);
-                    }
-                });
-
-                list.setOnItemLongClickListener(new OnItemLongClickListener() {
-                    public boolean onItemLongClick(AdapterView<?> arg0, View arg1,int position, long id) {
-                        int i = Integer.parseInt(todoCollection.get(position).get(KEY_ID));
-                        showEditionDialog(i);
-                        return true;
-                    }
-                });
+            buildList(todoFiltered);
             }
         else{
-            buildList();
+            buildCompleteList();
         }
 
     }
 
 
+    public void buildFiltedList(String _filter, boolean reverse){
+        List<ModelTodos> todos = db.getAllTodos();
 
-	public void buildList() {
-    	List<ModelTodos> todos = db.getAllTodos();      
-    	
-    	
-    	todoCollection = new ArrayList<HashMap<String,String>>();	                        
-		HashMap<String,String> map = null;
-			
-		for (ModelTodos todo : todos) {
-			map = new HashMap<String,String>(); 
+        if(_filter.contains("alpha")){
+            Collections.sort(todos, new Comparator<ModelTodos>() {
+                public int compare(ModelTodos result1, ModelTodos result2) {
+                    return result1.getTodoTitle().compareTo(result2.getTodoTitle());
+                }
+            });
+        }else if(_filter.contains("category")){
+            Collections.sort(todos, new Comparator<ModelTodos>() {
+                public int compare(ModelTodos result1, ModelTodos result2) {
+                    return result1.getTodoCategory().compareTo(result2.getTodoCategory());
+                }
+            });
+        }else if(_filter.contains("date")){
+            Collections.sort(todos, new Comparator<ModelTodos>() {
+                public int compare(ModelTodos result1, ModelTodos result2) {
+                    return result1.getTodoDeadline().compareTo(result2.getTodoDeadline());
+                }
+            });
+        }else if(_filter.contains("priority")){
+            Collections.sort(todos, new Comparator<ModelTodos>() {
+                public int compare(ModelTodos result1, ModelTodos result2) {
+                    return Integer.toString(result1.getPriority()).compareTo(Integer.toString(result2.getPriority()));
+                }
+            });
+        }else{
+           buildCompleteList();
+            return;
+        }
+
+        if(reverse){
+            Collections.reverse(todos);
+        }
+        buildList(todos);
+
+
+    }
+
+    public void buildList(List<ModelTodos> todos){
+        todoCollection = new ArrayList<HashMap<String,String>>();
+        HashMap<String,String> map = null;
+
+        for (ModelTodos todo : todos) {
+            map = new HashMap<String,String>();
 
             map.put(KEY_ID,Integer.toString(todo.getID()));
-			map.put(KEY_TITLE, todo.getTodoTitle());                	                                 
-			map.put(KEY_PRIORITY, Integer.toString(todo.getPriority()));
-			map.put(KEY_CONTENT, todo.getTodoContent());
-			map.put(KEY_DEADLINE, todo.getTodoDeadline());
+            map.put(KEY_TITLE, todo.getTodoTitle());
+            map.put(KEY_PRIORITY, Integer.toString(todo.getPriority()));
+            map.put(KEY_CONTENT, todo.getTodoContent());
+            map.put(KEY_DEADLINE, todo.getTodoDeadline());
             map.put(KEY_CATEGORY, todo.getTodoCategory());
             map.put(KEY_STATUS, Integer.toString(todo.getStatusTodo()));
-			                                                                
-            //Add to the Arraylist
-			todoCollection.add(map);
-		}
-		
-		
-		ListAdapter bindingData = new ListAdapter(this,todoCollection);						
-		list.setAdapter(bindingData);
 
-		// bind the click in the item
-		list.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				Intent intentDetail = new Intent(MainActivity.this, DetailTodo.class);
-				intentDetail.putExtra("title", todoCollection.get(position).get(KEY_TITLE));
-				intentDetail.putExtra("category", todoCollection.get(position).get(KEY_CATEGORY));
-				intentDetail.putExtra("priority", todoCollection.get(position).get(KEY_PRIORITY));
-				intentDetail.putExtra("content", todoCollection.get(position).get(KEY_CONTENT));
-				intentDetail.putExtra("deadline", todoCollection.get(position).get(KEY_DEADLINE));
-				startActivity(intentDetail);
-			}
-		});
-		
-		list.setOnItemLongClickListener(new OnItemLongClickListener() {
+            //Add to the Arraylist
+            todoCollection.add(map);
+        }
+
+
+        ListAdapter bindingData = new ListAdapter(this,todoCollection);
+        list.setAdapter(bindingData);
+
+        // bind the click in the item
+        list.setOnItemClickListener(new OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intentDetail = new Intent(MainActivity.this, DetailTodo.class);
+                intentDetail.putExtra("title", todoCollection.get(position).get(KEY_TITLE));
+                intentDetail.putExtra("category", todoCollection.get(position).get(KEY_CATEGORY));
+                intentDetail.putExtra("priority", todoCollection.get(position).get(KEY_PRIORITY));
+                intentDetail.putExtra("content", todoCollection.get(position).get(KEY_CONTENT));
+                intentDetail.putExtra("deadline", todoCollection.get(position).get(KEY_DEADLINE));
+                startActivity(intentDetail);
+            }
+        });
+
+        list.setOnItemLongClickListener(new OnItemLongClickListener() {
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1,int position, long id) {
                 int i = Integer.parseInt(todoCollection.get(position).get(KEY_ID));
-            	showEditionDialog(i);
-            	return true;
+                showEditionDialog(i);
+                return true;
             }
-        }); 
+        });
+    }
+
+
+
+	public void buildCompleteList() {
+    	List<ModelTodos> todos = db.getAllTodos();
+        buildList(todos);
     }
 
 	@Override
@@ -286,7 +294,7 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
     public void onDeleteEntry(String message, int position) {
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
         db.deleteTodo(db.getTodo(position));
-        buildList();
+        buildCompleteList();
     }
 
     @Override
@@ -306,7 +314,7 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
     public void addTodoToDb(ModelTodos model) {
         String modelString = model.getTodoTitle();
         db.addTodo(model);
-        buildList();
+        buildCompleteList();
     }
 
     @Override
@@ -315,6 +323,6 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
         String modelString = model.getTodoTitle();
         Toast.makeText(this,"item updated" + modelString,Toast.LENGTH_SHORT).show();
         db.updateTodo(model);
-        buildList();
+        buildCompleteList();
     }
 }

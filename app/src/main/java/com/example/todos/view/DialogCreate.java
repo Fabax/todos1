@@ -69,7 +69,7 @@ public class DialogCreate extends DialogFragment  {
 
         //DATE PICKER
         deadLinePicker = (DatePicker) promptsView.findViewById(R.id.todo_dead_line_input);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         Calendar calendar = Calendar.getInstance();
         calendar.set(deadLinePicker.getYear(), deadLinePicker.getMonth() + 1, deadLinePicker.getDayOfMonth());
         Date dateFromDatePicker = calendar.getTime();
@@ -118,7 +118,7 @@ public class DialogCreate extends DialogFragment  {
 
                     }
                 });
-        builder.setNegativeButton("Cancel",
+        builder.setNegativeButton("Annuler",
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
