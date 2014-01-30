@@ -58,7 +58,7 @@ public class DialogFilter extends DialogFragment {
                         }else if(idx == 1){
                             returnedString = "category";
                         }else if(idx == 2){
-                            returnedString = "pririty";
+                            returnedString = "priority";
                         }else if(idx == 3){
                             returnedString = "date";
                         }

@@ -157,7 +157,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	    ContentValues values = new ContentValues();
 	    values.put(KEY_PRIORITY, modelTodos.getPriority()); 
 	    values.put(KEY_STATUS, modelTodos.getStatusTodo()); 
-	    values.put(KEY_TITLE, modelTodos.getTodoTitle()); 
+	    values.put(KEY_TITLE, modelTodos.getTodoTitle());
 	    values.put(KEY_CONTENT, modelTodos.getTodoContent());
         values.put(KEY_CATEGORY, modelTodos.getTodoCategory());
 

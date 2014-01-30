@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 
 import com.example.todos.R;
 import com.example.todos.model.DatabaseHandler;
+import com.example.todos.model.ModelTodos;
 
 /**
  * Created by fabien on 21/01/2014.
@@ -76,7 +77,7 @@ public class DialogEdition extends DialogFragment {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                communicator.doneTodo("tache réalisée ", position);
+                communicator.doneTodo("taché réalisée",position);
                 dismiss();
             }
         });

@@ -14,24 +14,18 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp">
 
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:id="@+id/deatail_image_category"
-            android:baselineAlignBottom="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true" />
+
 
         <TextView
             android:id="@+id/detail_todo_title"
-            android:layout_width="171dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Large Text"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:paddingLeft="20dp"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/deatail_image_category"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:gravity="center" />
 
     </RelativeLayout>
 

@@ -31,15 +31,15 @@ public class DialogCreate extends DialogFragment  {
 
     DatabaseHandler db;
     Communicator communicator;
-    int position = 0;
-    String title,content,category;
-    int priority;
+    String category;
+    int  idTodo;
     DatePicker deadLinePicker;
     EditText todo_title;
     EditText todo_message;
     String dateString;
     boolean update;
     Spinner spinner;
+
 
 
     public Dialog onCreateDialog(Bundle savedInstanceState){
@@ -77,16 +77,7 @@ public class DialogCreate extends DialogFragment  {
         //Get BUNDLE
         final Bundle bundle = this.getArguments();
         if(getArguments()!=null){
-            title = getArguments().getString("title");
-            content = getArguments().getString("content");
-            priority = getArguments().getInt("priority");
-
-            Toast.makeText(getActivity(),title,Toast.LENGTH_SHORT).show();
-
-            todo_title.setText(title);
-            todo_message.setText(content);
-            todo_priority.check(priority);
-
+            idTodo = getArguments().getInt("id");
             update = true;
         }else{
             update = false;
@@ -100,7 +91,7 @@ public class DialogCreate extends DialogFragment  {
                         //radio button
                         int radioButtonID = todo_priority.getCheckedRadioButtonId();
                         View radioButton = todo_priority.findViewById(radioButtonID);
-                        int idx = todo_priority.indexOfChild(radioButton);
+                        int priority = todo_priority.indexOfChild(radioButton);
 
                         //spinner
                         category = spinner.getSelectedItem().toString();
@@ -110,11 +101,22 @@ public class DialogCreate extends DialogFragment  {
                         Date dateFromDatePicker = calendar.getTime();
                         dateString = (dateFormat.format(dateFromDatePicker));
 
-                        ModelTodos model = new ModelTodos(idx, todo_title.getText().toString(), todo_message.getText().toString(), dateString, category);
 
                         if(update){
+                            ModelTodos model = db.getTodo(idTodo);
+
+                            model.setTodoTitle(todo_title.getText().toString());
+                            model.setTodoCategory(category);
+                            model.setPriority(priority);
+                            model.setTodoDeadline(dateString);
+                            model.setStatusTodo(1);
+
+
+
+                            db.updateTodo(model);
                             communicator.updateTodo(model);
                         }else{
+                            ModelTodos model = new ModelTodos(priority, todo_title.getText().toString(), todo_message.getText().toString(), dateString, category);
                             communicator.addTodoToDb(model);
 
                         }

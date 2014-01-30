@@ -139,7 +139,7 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
 
         String title;
         String content;
-        int priority;
+        int priority, id;
 
         FragmentManager manager = getSupportFragmentManager();
         DialogCreate createDialog = new DialogCreate();
@@ -147,11 +147,13 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
         if(bool){
             title = db.getTodo(position).getTodoTitle();
             content = db.getTodo(position).getTodoContent();
+            id = db.getTodo(position).getID();
 
 
             Bundle bundle = new Bundle();
             bundle.putString("title", title);
             bundle.putString("content", content);
+            bundle.putInt("id", id);
 
 
             createDialog.setArguments(bundle);
@@ -256,6 +258,7 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
                 intentDetail.putExtra("priority", todoCollection.get(position).get(KEY_PRIORITY));
                 intentDetail.putExtra("content", todoCollection.get(position).get(KEY_CONTENT));
                 intentDetail.putExtra("deadline", todoCollection.get(position).get(KEY_DEADLINE));
+                intentDetail.putExtra("status", todoCollection.get(position).get(KEY_STATUS));
                 startActivity(intentDetail);
             }
         });
@@ -295,14 +298,17 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
 
     @Override
     public void doneTodo(String message, int position) {
-        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
-        db.getTodo(position).setStatusTodo(0);
+        ModelTodos model = db.getTodo(position);
+        int test =  model.getStatusTodo();
+        Toast.makeText(this,"item updated" + model.getTodoTitle(),Toast.LENGTH_SHORT).show();
+        model.setStatusTodo(test);
+        buildCompleteList();
     }
 
     //METHODS OF THE DIALOG CREATE FRAGMENT
     @Override
     public void addTodoToDb(ModelTodos model) {
-        String modelString = model.getTodoTitle();
+
         db.addTodo(model);
         buildCompleteList();
     }
@@ -312,7 +318,6 @@ public class MainActivity extends FragmentActivity implements DialogInterface.On
 
         String modelString = model.getTodoTitle();
         Toast.makeText(this,"item updated" + modelString,Toast.LENGTH_SHORT).show();
-        db.updateTodo(model);
         buildCompleteList();
     }
 

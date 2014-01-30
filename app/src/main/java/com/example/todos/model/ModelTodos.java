@@ -15,6 +15,8 @@ public class ModelTodos {
 
     }
     // constructor
+
+    //contruction de la liste
     public ModelTodos(int id, int _priority, String _todoTitle, String _todoContent,String _todoCategory){
         this._id = id;
         this._priority = _priority;
@@ -23,6 +25,7 @@ public class ModelTodos {
         this._todoContent = _todoCategory;
     }
 
+    //creation de tache
     public ModelTodos(int _priority, String _todoTitle, String _todoContent, String _deadline, String _category){
         this._priority = _priority;
         this._todoTitle = _todoTitle;

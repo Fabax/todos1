@@ -59,6 +59,10 @@ public class ListAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		Log.v("get view","getView");
+
+        String myCategory = todoCollection.get(position).get(KEY_CATEGORY);
+        String priority = todoCollection.get(position).get(KEY_PRIORITY);
+        String status = todoCollection.get(position).get(KEY_STATUS);
 		
 		View vi=convertView;
 		
@@ -68,6 +72,10 @@ public class ListAdapter extends BaseAdapter {
 	      holder.title = (TextView)vi.findViewById(R.id.todo_list_title_output); // title task
 	      holder.deadline = (TextView)vi.findViewById(R.id.todo_list_deadline_output); // date tas
           holder.category = (ImageView)vi.findViewById(R.id.list_image);
+
+            if(status.contains("0")){
+                holder.category.setImageResource(R.drawable.button_check);
+            }
 	      vi.setTag(holder);
 	    }
 	    else{	    	
@@ -80,12 +88,9 @@ public class ListAdapter extends BaseAdapter {
 	    holder.deadline.setText(todoCollection.get(position).get(KEY_DEADLINE));
 
 
-	    String myCategory = todoCollection.get(position).get(KEY_CATEGORY);
-	    String priority = todoCollection.get(position).get(KEY_PRIORITY);
-        String status = todoCollection.get(position).get(KEY_STATUS);
-
-
-        if(myCategory.contains("travail")){
+        if(status.contains("0")){
+            holder.category.setImageResource(R.drawable.button_check);
+        }else if(myCategory.contains("travail")){
             holder.category.setImageResource(R.drawable.cabinet);
         }else if(myCategory.contains("famille")){
             holder.category.setImageResource(R.drawable.home);
@@ -108,9 +113,6 @@ public class ListAdapter extends BaseAdapter {
         }
 
 
-        if(status.contains("0")){
-            holder.category.setBackgroundColor(Color.BLACK);
-        }
 
 	    if(priority.contains("0")){
             holder.category.setBackgroundColor(Color.parseColor("#01BFF3"));
